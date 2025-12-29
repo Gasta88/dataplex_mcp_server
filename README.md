@@ -14,12 +14,17 @@ Provides metadata, lineage, and data quality capabilities:
 ## Features
 
 ✅ TypeScript implementation with type safety
+
 ✅ Uses Google Cloud Application Default Credentials (ADC) - no service account keys needed
+
 ✅ In-memory caching for performance
+
 ✅ Comprehensive error handling
+
 ✅ Mermaid diagram generation for lineage
-✅ SQL transformation extraction (CTAS and INSERT statements)
+
 ✅ Max lineage depth: 3 levels
+
 ✅ **MCPB Bundle Support** - Easy installation via Claude Desktop
 
 ## Installation Options
