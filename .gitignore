@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+bundle/
+*.mcpb
+
+# Configuration files with secrets
+config.json
+mcp-dataplex-config.json
+
+# Service account keys
+*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!config/config.example.json
+!manifest.json
+
+# Google Cloud credentials
+**/application_default_credentials.json
+.config/gcloud/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local

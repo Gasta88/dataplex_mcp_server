@@ -1,0 +1,8 @@
+{
+  "gcp": {
+    "projectId": "GCP_PROJECT_ID"
+  },
+  "cache": {
+    "enabled": true
+  }
+}

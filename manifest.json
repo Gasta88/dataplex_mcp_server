@@ -1,0 +1,76 @@
+{
+  "manifest_version": "0.3",
+  "name": "dataplex-mcp-server",
+  "version": "2.0.0",
+  "description": "GCP Dataplex integration for BigQuery metadata, data lineage, and data quality monitoring. Access table schemas, track data transformations, and monitor data quality scans.",
+  "author": {
+    "name": "Francesco Gastaldello"
+  },
+  "icon": "icon.png",
+  "user_config": {
+    "projectId": {
+      "type": "string",
+      "title": "GCP Project ID",
+      "description": "Your Google Cloud Platform project ID (e.g., my-project-123)",
+      "required": true
+    },
+    "cacheEnabled": {
+      "type": "boolean",
+      "title": "Enable Caching",
+      "description": "Enable in-memory caching for improved performance",
+      "default": true,
+      "required": false
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "GCP_PROJECT_ID": "${user_config.projectId}",
+        "CACHE_ENABLED": "${user_config.cacheEnabled}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "list_datasets",
+      "description": "List all BigQuery datasets in the configured GCP project"
+    },
+    {
+      "name": "list_tables",
+      "description": "List all tables in a BigQuery dataset"
+    },
+    {
+      "name": "get_table_metadata",
+      "description": "Get comprehensive metadata for a BigQuery table including schema, descriptions, clustering, partitioning, and partition filters"
+    },
+    {
+      "name": "get_data_lineage",
+      "description": "Get upstream and downstream data lineage for a BigQuery table with Mermaid diagram visualization. Includes SQL transformations (CTAS and INSERT) in results (max depth: 3 levels)"
+    },
+    {
+      "name": "get_sql_transformations",
+      "description": "Get SQL transformations (CREATE TABLE AS SELECT and INSERT INTO statements) from lineage processes. Excludes UPDATE, MERGE, and DELETE operations"
+    },
+    {
+      "name": "get_data_quality_results",
+      "description": "Get the latest data quality scan results for a BigQuery table"
+    }
+  ],
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}

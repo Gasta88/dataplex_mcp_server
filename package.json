@@ -1,0 +1,32 @@
+{
+  "name": "mcp-dataplex",
+  "version": "2.0.0",
+  "description": "MCP server for GCP Dataplex - metadata, lineage, and data quality",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "mcp-dataplex": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist bundle *.mcpb",
+    "prepublish": "npm run build",
+    "bundle": "bash scripts/build-bundle.sh",
+    "bundle:win": "powershell -ExecutionPolicy Bypass -File scripts/build-bundle.ps1"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^7.3.0",
+    "@google-cloud/datacatalog": "^4.3.0",
+    "@google-cloud/dataplex": "^3.2.0",
+    "@google-cloud/lineage": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
